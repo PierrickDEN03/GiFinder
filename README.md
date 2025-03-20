@@ -8,6 +8,6 @@
 
 
 ## Docs Gifu
-- https://github.com/kaishin/Gifu
+- [https://github.com/kaishin/Gifu](https://github.com/alexiscreuzot/SwiftyGif)
 
 - https://developers.giphy.com/dashboard/
