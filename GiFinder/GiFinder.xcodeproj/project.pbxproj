@@ -3,70 +3,72 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C52DBA922D8C59710019085A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52DBA912D8C59710019085A /* AppDelegate.swift */; };
-		C52DBA942D8C59710019085A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52DBA932D8C59710019085A /* SceneDelegate.swift */; };
-		C52DBA962D8C59710019085A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52DBA952D8C59710019085A /* ViewController.swift */; };
-		C52DBA992D8C59710019085A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C52DBA982D8C59710019085A /* Base */; };
-		C52DBA9B2D8C59720019085A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52DBA9A2D8C59720019085A /* Assets.xcassets */; };
-		C52DBA9E2D8C59720019085A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C52DBA9D2D8C59720019085A /* Base */; };
-		C52DBAA72D8C5AF50019085A /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = C52DBAA62D8C5AF50019085A /* SwiftyGif */; };
-		C52DBAA92D8C5AF50019085A /* SwiftyGif-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C52DBAA82D8C5AF50019085A /* SwiftyGif-Dynamic */; };
+		3D5D9F972D9190B6009062B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9F962D9190B6009062B3 /* AppDelegate.swift */; };
+		3D5D9F992D9190B6009062B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9F982D9190B6009062B3 /* SceneDelegate.swift */; };
+		3D5D9F9B2D9190B6009062B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9F9A2D9190B6009062B3 /* ViewController.swift */; };
+		3D5D9F9E2D9190B6009062B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D5D9F9D2D9190B6009062B3 /* Base */; };
+		3D5D9FA02D9190B7009062B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D5D9F9F2D9190B7009062B3 /* Assets.xcassets */; };
+		3D5D9FA32D9190B7009062B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D5D9FA22D9190B7009062B3 /* Base */; };
+		3D5D9FB02D919382009062B3 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9FAF2D919382009062B3 /* iOSDevCenters+GIF.swift */; };
+		3D5D9FB22D91982F009062B3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9FB12D91982E009062B3 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C52DBA8E2D8C59710019085A /* GiFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C52DBA912D8C59710019085A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C52DBA932D8C59710019085A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C52DBA952D8C59710019085A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C52DBA982D8C59710019085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C52DBA9A2D8C59720019085A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C52DBA9D2D8C59720019085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C52DBA9F2D8C59720019085A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D5D9F932D9190B6009062B3 /* GiFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D5D9F962D9190B6009062B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3D5D9F982D9190B6009062B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3D5D9F9A2D9190B6009062B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D5D9F9D2D9190B6009062B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D5D9F9F2D9190B7009062B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D5D9FA22D9190B7009062B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D5D9FA42D9190B7009062B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D5D9FAF2D919382009062B3 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		3D5D9FB12D91982E009062B3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C52DBA8B2D8C59710019085A /* Frameworks */ = {
+		3D5D9F902D9190B6009062B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52DBAA72D8C5AF50019085A /* SwiftyGif in Frameworks */,
-				C52DBAA92D8C5AF50019085A /* SwiftyGif-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C52DBA852D8C59710019085A = {
+		3D5D9F8A2D9190B6009062B3 = {
 			isa = PBXGroup;
 			children = (
-				C52DBA902D8C59710019085A /* GiFinder */,
-				C52DBA8F2D8C59710019085A /* Products */,
+				3D5D9F952D9190B6009062B3 /* GiFinder */,
+				3D5D9F942D9190B6009062B3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C52DBA8F2D8C59710019085A /* Products */ = {
+		3D5D9F942D9190B6009062B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C52DBA8E2D8C59710019085A /* GiFinder.app */,
+				3D5D9F932D9190B6009062B3 /* GiFinder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C52DBA902D8C59710019085A /* GiFinder */ = {
+		3D5D9F952D9190B6009062B3 /* GiFinder */ = {
 			isa = PBXGroup;
 			children = (
-				C52DBA912D8C59710019085A /* AppDelegate.swift */,
-				C52DBA932D8C59710019085A /* SceneDelegate.swift */,
-				C52DBA952D8C59710019085A /* ViewController.swift */,
-				C52DBA972D8C59710019085A /* Main.storyboard */,
-				C52DBA9A2D8C59720019085A /* Assets.xcassets */,
-				C52DBA9C2D8C59720019085A /* LaunchScreen.storyboard */,
-				C52DBA9F2D8C59720019085A /* Info.plist */,
+				3D5D9F962D9190B6009062B3 /* AppDelegate.swift */,
+				3D5D9FB12D91982E009062B3 /* CustomTableViewCell.swift */,
+				3D5D9FAF2D919382009062B3 /* iOSDevCenters+GIF.swift */,
+				3D5D9F982D9190B6009062B3 /* SceneDelegate.swift */,
+				3D5D9F9A2D9190B6009062B3 /* ViewController.swift */,
+				3D5D9F9C2D9190B6009062B3 /* Main.storyboard */,
+				3D5D9F9F2D9190B7009062B3 /* Assets.xcassets */,
+				3D5D9FA12D9190B7009062B3 /* LaunchScreen.storyboard */,
+				3D5D9FA42D9190B7009062B3 /* Info.plist */,
 			);
 			path = GiFinder;
 			sourceTree = "<group>";
@@ -74,13 +76,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C52DBA8D2D8C59710019085A /* GiFinder */ = {
+		3D5D9F922D9190B6009062B3 /* GiFinder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C52DBAA22D8C59720019085A /* Build configuration list for PBXNativeTarget "GiFinder" */;
+			buildConfigurationList = 3D5D9FA72D9190B7009062B3 /* Build configuration list for PBXNativeTarget "GiFinder" */;
 			buildPhases = (
-				C52DBA8A2D8C59710019085A /* Sources */,
-				C52DBA8B2D8C59710019085A /* Frameworks */,
-				C52DBA8C2D8C59710019085A /* Resources */,
+				3D5D9F8F2D9190B6009062B3 /* Sources */,
+				3D5D9F902D9190B6009062B3 /* Frameworks */,
+				3D5D9F912D9190B6009062B3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -88,29 +90,27 @@
 			);
 			name = GiFinder;
 			packageProductDependencies = (
-				C52DBAA62D8C5AF50019085A /* SwiftyGif */,
-				C52DBAA82D8C5AF50019085A /* SwiftyGif-Dynamic */,
 			);
 			productName = GiFinder;
-			productReference = C52DBA8E2D8C59710019085A /* GiFinder.app */;
+			productReference = 3D5D9F932D9190B6009062B3 /* GiFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C52DBA862D8C59710019085A /* Project object */ = {
+		3D5D9F8B2D9190B6009062B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					C52DBA8D2D8C59710019085A = {
+					3D5D9F922D9190B6009062B3 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = C52DBA892D8C59710019085A /* Build configuration list for PBXProject "GiFinder" */;
+			buildConfigurationList = 3D5D9F8E2D9190B6009062B3 /* Build configuration list for PBXProject "GiFinder" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,58 +118,59 @@
 				en,
 				Base,
 			);
-			mainGroup = C52DBA852D8C59710019085A;
+			mainGroup = 3D5D9F8A2D9190B6009062B3;
 			packageReferences = (
-				C52DBAA52D8C5AF50019085A /* XCLocalSwiftPackageReference "../../SwiftyGif" */,
 			);
-			productRefGroup = C52DBA8F2D8C59710019085A /* Products */;
+			productRefGroup = 3D5D9F942D9190B6009062B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C52DBA8D2D8C59710019085A /* GiFinder */,
+				3D5D9F922D9190B6009062B3 /* GiFinder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C52DBA8C2D8C59710019085A /* Resources */ = {
+		3D5D9F912D9190B6009062B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52DBA9B2D8C59720019085A /* Assets.xcassets in Resources */,
-				C52DBA9E2D8C59720019085A /* Base in Resources */,
-				C52DBA992D8C59710019085A /* Base in Resources */,
+				3D5D9FA02D9190B7009062B3 /* Assets.xcassets in Resources */,
+				3D5D9FA32D9190B7009062B3 /* Base in Resources */,
+				3D5D9F9E2D9190B6009062B3 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C52DBA8A2D8C59710019085A /* Sources */ = {
+		3D5D9F8F2D9190B6009062B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52DBA962D8C59710019085A /* ViewController.swift in Sources */,
-				C52DBA922D8C59710019085A /* AppDelegate.swift in Sources */,
-				C52DBA942D8C59710019085A /* SceneDelegate.swift in Sources */,
+				3D5D9F9B2D9190B6009062B3 /* ViewController.swift in Sources */,
+				3D5D9FB22D91982F009062B3 /* CustomTableViewCell.swift in Sources */,
+				3D5D9FB02D919382009062B3 /* iOSDevCenters+GIF.swift in Sources */,
+				3D5D9F972D9190B6009062B3 /* AppDelegate.swift in Sources */,
+				3D5D9F992D9190B6009062B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C52DBA972D8C59710019085A /* Main.storyboard */ = {
+		3D5D9F9C2D9190B6009062B3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C52DBA982D8C59710019085A /* Base */,
+				3D5D9F9D2D9190B6009062B3 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C52DBA9C2D8C59720019085A /* LaunchScreen.storyboard */ = {
+		3D5D9FA12D9190B7009062B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C52DBA9D2D8C59720019085A /* Base */,
+				3D5D9FA22D9190B7009062B3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -177,7 +178,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C52DBAA02D8C59720019085A /* Debug */ = {
+		3D5D9FA52D9190B7009062B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,7 +241,7 @@
 			};
 			name = Debug;
 		};
-		C52DBAA12D8C59720019085A /* Release */ = {
+		3D5D9FA62D9190B7009062B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -296,7 +297,7 @@
 			};
 			name = Release;
 		};
-		C52DBAA32D8C59720019085A /* Debug */ = {
+		3D5D9FA82D9190B7009062B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -315,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GiFinder.GiFinder;
+				PRODUCT_BUNDLE_IDENTIFIER = lyon2.GiFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -323,7 +324,7 @@
 			};
 			name = Debug;
 		};
-		C52DBAA42D8C59720019085A /* Release */ = {
+		3D5D9FA92D9190B7009062B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -342,7 +343,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GiFinder.GiFinder;
+				PRODUCT_BUNDLE_IDENTIFIER = lyon2.GiFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -353,43 +354,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C52DBA892D8C59710019085A /* Build configuration list for PBXProject "GiFinder" */ = {
+		3D5D9F8E2D9190B6009062B3 /* Build configuration list for PBXProject "GiFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C52DBAA02D8C59720019085A /* Debug */,
-				C52DBAA12D8C59720019085A /* Release */,
+				3D5D9FA52D9190B7009062B3 /* Debug */,
+				3D5D9FA62D9190B7009062B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C52DBAA22D8C59720019085A /* Build configuration list for PBXNativeTarget "GiFinder" */ = {
+		3D5D9FA72D9190B7009062B3 /* Build configuration list for PBXNativeTarget "GiFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C52DBAA32D8C59720019085A /* Debug */,
-				C52DBAA42D8C59720019085A /* Release */,
+				3D5D9FA82D9190B7009062B3 /* Debug */,
+				3D5D9FA92D9190B7009062B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		C52DBAA52D8C5AF50019085A /* XCLocalSwiftPackageReference "../../SwiftyGif" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../SwiftyGif;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C52DBAA62D8C5AF50019085A /* SwiftyGif */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftyGif;
-		};
-		C52DBAA82D8C5AF50019085A /* SwiftyGif-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "SwiftyGif-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = C52DBA862D8C59710019085A /* Project object */;
+	rootObject = 3D5D9F8B2D9190B6009062B3 /* Project object */;
 }
