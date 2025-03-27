@@ -47,13 +47,15 @@
                                                     <rect key="frame" x="76" y="0.0" width="240" height="183"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIN-gn-Y8e">
+                                                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIN-gn-Y8e">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="183"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                     <connections>
-                                                        <action selector="clic:" destination="0s8-Dh-7uX" eventType="touchUpInside" id="cX0-bw-0pL"/>
+                                                        <action selector="touchDown:" destination="0s8-Dh-7uX" eventType="touchDown" id="gjl-Iy-JOP"/>
+                                                        <action selector="touchUpIn:" destination="0s8-Dh-7uX" eventType="touchUpInside" id="OQg-kc-fRO"/>
+                                                        <action selector="touchUpOut:" destination="0s8-Dh-7uX" eventType="touchUpOutside" id="ZTf-Yk-kVU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
