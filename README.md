@@ -8,6 +8,10 @@
 
 
 ## Docs Gifu
-- https://github.com/alexiscreuzot/SwiftyGif
+- https://github.com/kiritmodi2702/GIF-Swift/tree/master
 
 - https://developers.giphy.com/dashboard/
+
+#### Aide téléchargement
+- https://www.hackingwithswift.com/books/ios-swiftui/how-to-save-images-to-the-users-photo-library
+- https://stackoverflow.com/questions/43927287/save-gif-to-ios-photo-library-in-swift
