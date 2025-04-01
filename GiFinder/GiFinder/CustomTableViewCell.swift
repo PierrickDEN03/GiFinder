@@ -12,15 +12,7 @@ class CustomTableViewCell: UITableViewCell {
 
     var url: String = ""
     
-    @IBAction func touchUpOut(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-    }
-    @IBAction func touchDown(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-    }
-    
-    @IBAction func touchUpIn(_ sender: UIButton) {
-//        UIImageWriteToSavedPhotosAlbum(gifImageView.image!, nil, nil, nil)
+    @IBAction func click(_ sender: UIButton) {
         sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         downloadAndSaveGIF(from: url)
     }
@@ -57,8 +49,8 @@ class CustomTableViewCell: UITableViewCell {
             }
             let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("temp.gif")
             
-            if let response = response {
-                print("Requête réussie")
+            if let response = response as? HTTPURLResponse {
+                print("Requête réussie : \(response.statusCode)")
                 do {
                     try data!.write(to: tempURL)
                     self.saveGIFToPhotos(url: tempURL)
