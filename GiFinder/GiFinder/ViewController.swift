@@ -49,6 +49,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let scrollTrueOffset = scrollView.contentOffset.y + tableView.frame.size.height
         if (scrollView.contentSize.height <= scrollTrueOffset && !isLoading){
             if !isTotalContent{
+                print("test1")
                 self.loadGifs(waitTimeMS: 500)
             }else{
                 showAlert(title: "Recherche finie", msg: "Vous avez trouvé tous les résultats pour cette recherche")
@@ -60,8 +61,8 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     private func loadGifs(waitTimeMS: Int = 0){
         if(!isLoading){
             // Pour empêcher  qu'il y ait d'autres plusieurs requêtes déclenchées en même temps
-            isLoading = true
-            print("test")
+            self.isLoading = true
+            print("test2")
             Task {
                 if  (currentTitle != nil && currentTitle != "") {
                     let tempImage: [String]
@@ -73,11 +74,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
                     // Wait Time to have a better experience during the layout reload
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(waitTimeMS)) {
                         self.tableView.reloadData()
+                        self.isLoading = false
                     }
                 }else{
                     self.showAlert(title: "Champs vide", msg: "Le champs de texte est vide, veuillez renseigner le style de gif que vous recherchez")
+                    self.isLoading = false
                 }
-                self.isLoading = false
             }
         }
         
