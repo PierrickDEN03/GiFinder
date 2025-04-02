@@ -15,6 +15,7 @@
 		3D5D9FA32D9190B7009062B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3D5D9FA22D9190B7009062B3 /* Base */; };
 		3D5D9FB02D919382009062B3 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9FAF2D919382009062B3 /* iOSDevCenters+GIF.swift */; };
 		3D5D9FB22D91982F009062B3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9FB12D91982E009062B3 /* CustomTableViewCell.swift */; };
+		C5147FCE2D9D30880098DC0E /* GiphyAPIHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5147FCD2D9D30880098DC0E /* GiphyAPIHandle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3D5D9FA42D9190B7009062B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D5D9FAF2D919382009062B3 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		3D5D9FB12D91982E009062B3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C5147FCD2D9D30880098DC0E /* GiphyAPIHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyAPIHandle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		3D5D9F952D9190B6009062B3 /* GiFinder */ = {
 			isa = PBXGroup;
 			children = (
+				C5147FCC2D9D303B0098DC0E /* GiphyAPI */,
 				3D5D9F962D9190B6009062B3 /* AppDelegate.swift */,
 				3D5D9FB12D91982E009062B3 /* CustomTableViewCell.swift */,
 				3D5D9FAF2D919382009062B3 /* iOSDevCenters+GIF.swift */,
@@ -71,6 +74,14 @@
 				3D5D9FA42D9190B7009062B3 /* Info.plist */,
 			);
 			path = GiFinder;
+			sourceTree = "<group>";
+		};
+		C5147FCC2D9D303B0098DC0E /* GiphyAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C5147FCD2D9D30880098DC0E /* GiphyAPIHandle.swift */,
+			);
+			path = GiphyAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 				3D5D9FB22D91982F009062B3 /* CustomTableViewCell.swift in Sources */,
 				3D5D9FB02D919382009062B3 /* iOSDevCenters+GIF.swift in Sources */,
 				3D5D9F972D9190B6009062B3 /* AppDelegate.swift in Sources */,
+				C5147FCE2D9D30880098DC0E /* GiphyAPIHandle.swift in Sources */,
 				3D5D9F992D9190B6009062B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
