@@ -9,7 +9,6 @@ class GiphyAPIHandle {
     
     let api_key: String
     let limit: Int
-    // Gif  qui est renvoyé lorsqu'il n'y a pas ou plus de résultat
     init(api_key: String?, limit: Int) {
         if api_key == nil {
             print("la clef d'API n'est pas défini")
@@ -20,7 +19,10 @@ class GiphyAPIHandle {
         self.limit = limit
     }
     
+    
+    //Fonction qui retourne un tableau de liens d'images et un booleen sur le fait d'atteindre la fin des résultats -> En fonction de la requete API de la fonction fetch
     func call(queryStr: String, offset: Int = 0) async -> ([String], Bool) {
+        //Appel de la fonction fetch -> Appel API
         let data = await self.fetch(queryStr: queryStr, offset: offset)
         if(data != nil && data!.data != []){
             let dataImages = data!.data
@@ -29,14 +31,18 @@ class GiphyAPIHandle {
                 tempImages.append(img.images.fixed_height.url)
             }
             return (tempImages, isTotalCount(data!.pagination!))
+        //En cas d'erreurs
         }else{
             return ([], true)
         }
     }
     
+    //Fonction permettant la requête API avec le passage des paramètres
+    //Retourne un résultat sous la structure Response (cf fin du code)
     private func fetch(queryStr: String, offset: Int) async -> Response? {
         var giphyData: Response?
         var components = URLComponents(string: "https://api.giphy.com/v1/gifs/search")
+        //Passage des paramètres, les noms sont définis par l'API
         components!.queryItems = [
             URLQueryItem(name: "api_key", value: self.api_key),
             URLQueryItem(name: "q", value: queryStr),
@@ -44,9 +50,11 @@ class GiphyAPIHandle {
             URLQueryItem(name: "offset", value: String(offset))
         ]
         
+        //Se fait de façon asynchrone
         do{
             let (data, response) = try await URLSession.shared.data(from: components!.url!)
             if let responseHtpp = response as? HTTPURLResponse{
+                //Decoder JSON
                 let decoder = JSONDecoder()
                 giphyData = try decoder.decode(Response.self, from: data)
                 if responseHtpp.statusCode != 200{
@@ -56,34 +64,37 @@ class GiphyAPIHandle {
         }catch{
             print("error during the API call: \(error)")
         }
-        
         return giphyData
     }
     
+    //Vérifie si l'utilisateur a atteint ou pas la fin de la requete API
     private func isTotalCount(_ pagination: Pagination) -> Bool{
         return pagination.offset + pagination.count == pagination.total_count
     }
     
+    
+    
     // MARK: - Request  and download for a gif
     func downloadAndSavePhotoGIF(from urlString: String) {
-        
         let url =  URL(string: urlString)
         if url == nil  {
             print("URL invalide")
             return
         }
-
         // Télécharger le GIF
         URLSession.shared.dataTask(with: url!) { data, response, error in
+            
+            //Vérification des erreurs, résultat et données vides
             if let error = error {
                 print("Erreur de téléchargement : \(error.localizedDescription)")
                 return
             }
-            
             if data == nil {
                 print("Données vides")
                 return
             }
+            
+            //Pointe vers un fichier temporaire dans le répertoire des fichiers temporaires de l'appareil -> sert à l'enregistrement de la photo
             let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("temp.gif")
             
             if let response = response as? HTTPURLResponse {
@@ -154,3 +165,4 @@ struct Response: Codable {
     var meta: Meta
     var pagination: Pagination?
 }
+
