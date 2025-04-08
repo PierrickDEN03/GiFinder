@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, CustomTableViewCellDelegate {
+    
     //Initialisation des variables du controlleur
     var boolShowAlert = true
     var largeLoadingView = UIActivityIndicatorView(style: .large)
@@ -23,33 +24,35 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     //Au clic du bouton, charge les gifs par mots-clés et actualise le tableau
     @IBAction func clic(_ sender: Any) {
+        print("Clic bouton")
         tableView.setContentOffset(.zero, animated: false)
         currentTitle = queryField.text
         isTotalContent = false
         images = []
         self.tableView.reloadData()
+        print(currentTitle ?? "currentTitle est nil")
         self.loadGifs(loader:largeLoadingView)
     }
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            tableView.dataSource = self
-            tableView.delegate = self
-            //Initialisation des images de chargement
-            largeLoadingView.center = self.view.center
-            self.view.addSubview(largeLoadingView)
-            mediumLoadingView.center = CGPoint(x: self.view.center.x, y: self.view.frame.size.height - mediumLoadingView.frame.size.height - 20 / 2)
-            self.view.addSubview(mediumLoadingView)
-        }
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        //Initialisation des images de chargement
+        largeLoadingView.center = self.view.center
+        self.view.addSubview(largeLoadingView)
+        mediumLoadingView.center = CGPoint(x: self.view.center.x, y: self.view.frame.size.height - mediumLoadingView.frame.size.height - 20 / 2)
+        self.view.addSubview(mediumLoadingView)
+    }
     
     // TableView fonctions au chargement
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-            let imageUrl = images[indexPath.row]
+        let imageUrl = images[indexPath.row]
         cell.loadGif(from: imageUrl)
         
         //Affecter le délégué de la cellule à "self"
@@ -72,12 +75,13 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
     }
     
-
+    
     
     
     //Fonction qui charge les GIF et les rajoute dans le tableau
     //Prend en paramètre un "loader" -> Icone de chargement
     private func loadGifs(loader:UIActivityIndicatorView, waitTimeMS: Int = 0){
+        print("Fonction loadGif")
         if(!isLoading){
             // Pour empêcher  qu'il y ait d'autres plusieurs requêtes déclenchées en même temps
             self.isLoading = true
@@ -119,7 +123,10 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
             //Lancer l'alerte depuis le contrôleur de vue
             showDownloadAlert()
         }
-            
+    }
+    
+    func getAccessPhotos(in cell: CustomTableViewCell) {
+        showPermissionAlert()
     }
     
     private func showDownloadAlert() {
@@ -136,7 +143,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         // Affiche l'alerte depuis le contrôleur de vue
         present(alertController, animated: true)
     }
-     
+    
     
     //Fonction permettant la création d'une alerte avec un titre et message personnalisé
     private func showAlert(title: String, msg: String){
@@ -144,6 +151,24 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         
         present(alertController, animated: true)
+    }
+    
+    //Fonction affichant l'alerte pour l'accès aux photos
+    func showPermissionAlert() {
+        let alert = UIAlertController(
+            title: "Accès refusé",
+            message: "Veuillez autoriser l'accès aux photos dans les réglages.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Aller aux réglages", style: .default, handler: { _ in
+            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
