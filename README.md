@@ -16,3 +16,6 @@
 #### Aide téléchargement
 - https://www.hackingwithswift.com/books/ios-swiftui/how-to-save-images-to-the-users-photo-library
 - https://stackoverflow.com/questions/43927287/save-gif-to-ios-photo-library-in-swift
+
+## PB autorisations 
+https://stackoverflow.com/questions/39269232/correct-way-to-handle-change-in-settings-for-ios
