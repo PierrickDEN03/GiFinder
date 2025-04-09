@@ -1,6 +1,7 @@
 import Foundation
 import Photos
 
+//MARK: - Les fonctions de gestion de l'API Giphy
 // Création d'une classe pour  la gestion de l'appel API
 class GiphyAPIHandle {
     
@@ -75,11 +76,13 @@ class GiphyAPIHandle {
     
     
     // MARK: - Request  and download for a gif
-    func downloadAndSavePhotoGIF(from urlString: String) {
+    //Fonction qui télécharge le GIF sélectionné et renvoie vrai s'il y a une erreur / faux sinon
+    func downloadAndSavePhotoGIF(from urlString: String) -> Bool {
         let url =  URL(string: urlString)
+        var isError: Bool = false
         if url == nil  {
             print("URL invalide")
-            return
+            isError = true
         }
         // Télécharger le GIF
         URLSession.shared.dataTask(with: url!) { data, response, error in
@@ -87,10 +90,12 @@ class GiphyAPIHandle {
             //Vérification des erreurs, résultat et données vides
             if let error = error {
                 print("Erreur de téléchargement : \(error.localizedDescription)")
+                isError = true
                 return
             }
             if data == nil {
                 print("Données vides")
+                isError = true
                 return
             }
             
@@ -101,21 +106,27 @@ class GiphyAPIHandle {
                 print("Requête réussie : \(response.statusCode)")
                 do {
                     try data!.write(to: tempURL)
-                    self.saveGIFToPhotos(url: tempURL)
+                    try self.saveGIFToPhotos(url: tempURL)
+                    
                 } catch {
+                    isError = true
                     print("Erreur d'écriture du fichier : \(error.localizedDescription)")
+                    return
                 }
             }else {
+                isError = true
                 print("La requête a échoué")
                 return
             }
             
             
         }.resume()
+        return isError
     }
 
     // Fonction pour passer le fichier GIF du dossier temporaire à la galerie photo
-    func saveGIFToPhotos(url: URL) {
+    func saveGIFToPhotos(url: URL) throws {
+        var errorFunc: Error?
         PHPhotoLibrary.shared().performChanges({
             let request = PHAssetCreationRequest.forAsset()
             request.addResource(with: .photo, fileURL: url, options: nil)
@@ -124,7 +135,11 @@ class GiphyAPIHandle {
                 print("GIF enregistré avec succès")
             } else if let error = error {
                 print("Erreur d'enregistrement : \(error.localizedDescription)")
+                errorFunc = error
             }
+        }
+        if let errorFunc {
+            throw errorFunc
         }
     }
 

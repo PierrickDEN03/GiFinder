@@ -12,6 +12,7 @@ import Photos
 protocol CustomTableViewCellDelegate: AnyObject {
     func didTapDownloadButton(in cell: CustomTableViewCell)
     func getAccessPhotos(in cell:CustomTableViewCell)
+    func getError(in cell:CustomTableViewCell)
 }
 
 
@@ -30,16 +31,15 @@ class CustomTableViewCell: UITableViewCell {
         let status = PHPhotoLibrary.authorizationStatus()
         if status == .authorized {
             //Télécharge le GIF
-            GiphyAPIHandle.shared.downloadAndSavePhotoGIF(from: url)
-            delegate?.didTapDownloadButton(in: self)
+            handleDownload()
+            
         } else if status == .notDetermined {
             PHPhotoLibrary.requestAuthorization(for: .addOnly){ newStatus in DispatchQueue.main.async {
                 if newStatus ==  .authorized || newStatus == .limited {
                     // L'autorisation aux photos a été donnée
-                    GiphyAPIHandle.shared.downloadAndSavePhotoGIF(from: self.url)
-                        self.delegate?.didTapDownloadButton(in: self)
+                    self.handleDownload()
                 } else {
-                        // L'utilisateur a refusé, afficher l'alerte
+                    // L'utilisateur a refusé, afficher l'alerte
                     self.delegate?.getAccessPhotos(in: self)
                 }
             }
@@ -63,6 +63,16 @@ class CustomTableViewCell: UITableViewCell {
                 self.gifImageView.image = gifImage
                 self.url = url
             }
+        }
+    }
+    
+    
+    
+    func handleDownload() {
+        if GiphyAPIHandle.shared.downloadAndSavePhotoGIF(from: url) {
+            delegate?.getError(in: self)
+        } else {
+            delegate?.didTapDownloadButton(in: self)
         }
     }
 }

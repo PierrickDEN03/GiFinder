@@ -10,8 +10,10 @@ import Foundation
 
 class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, CustomTableViewCellDelegate {
     
+    
     //Initialisation des variables du controlleur
-    var boolShowAlert = true
+    var isEndResult = false
+    var boolDontAsk = true
     var largeLoadingView = UIActivityIndicatorView(style: .large)
     var mediumLoadingView = UIActivityIndicatorView(style: .medium)
     var currentTitle: String? //Mots-clés renseignés
@@ -24,13 +26,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     //Au clic du bouton, charge les gifs par mots-clés et actualise le tableau
     @IBAction func clic(_ sender: Any) {
-        print("Clic bouton")
+        isEndResult = false
         tableView.setContentOffset(.zero, animated: false)
         currentTitle = queryField.text
         isTotalContent = false
         images = []
         self.tableView.reloadData()
-        print(currentTitle ?? "currentTitle est nil")
         self.loadGifs(loader:largeLoadingView)
     }
     
@@ -38,10 +39,11 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.contentInset.bottom = 50
         //Initialisation des images de chargement
         largeLoadingView.center = self.view.center
         self.view.addSubview(largeLoadingView)
-        mediumLoadingView.center = CGPoint(x: self.view.center.x, y: self.view.frame.size.height - mediumLoadingView.frame.size.height - 20 / 2)
+        mediumLoadingView.center = CGPoint(x: self.view.center.x, y: self.view.frame.size.height - mediumLoadingView.frame.size.height - 50 / 2)
         self.view.addSubview(mediumLoadingView)
     }
     
@@ -54,7 +56,6 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         let imageUrl = images[indexPath.row]
         cell.loadGif(from: imageUrl)
-        
         //Affecter le délégué de la cellule à "self"
         cell.delegate = self
         return cell
@@ -66,11 +67,15 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let scrollTrueOffset = scrollView.contentOffset.y + tableView.frame.size.height
         
         //Charge les GIF ou un message d'erreur si scroll atteint
-        if (scrollView.contentSize.height <= scrollTrueOffset && !isLoading){
+        if (scrollView.contentSize.height <= scrollTrueOffset  && !isLoading){
             if !isTotalContent{
                 self.loadGifs(loader:mediumLoadingView,waitTimeMS: 500)
             }else{
-                showAlert(title: "Recherche finie", msg: "Vous avez trouvé tous les résultats pour cette recherche")
+                if isEndResult == false {
+                    showAlert(title: "Recherche finie", msg: "Vous avez trouvé tous les résultats pour cette recherche")
+                    isEndResult = true
+                }
+                
             }
         }
     }
@@ -81,7 +86,6 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     //Fonction qui charge les GIF et les rajoute dans le tableau
     //Prend en paramètre un "loader" -> Icone de chargement
     private func loadGifs(loader:UIActivityIndicatorView, waitTimeMS: Int = 0){
-        print("Fonction loadGif")
         if(!isLoading){
             // Pour empêcher  qu'il y ait d'autres plusieurs requêtes déclenchées en même temps
             self.isLoading = true
@@ -119,7 +123,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     //Implémentation du protocole CustomTableViewCellDelegate
     func didTapDownloadButton(in cell: CustomTableViewCell) {
-        if self.boolShowAlert {
+        if self.boolDontAsk {
             //Lancer l'alerte depuis le contrôleur de vue
             showDownloadAlert()
         }
@@ -129,15 +133,19 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         showPermissionAlert()
     }
     
+    func getError(in cell: CustomTableViewCell) {
+        showAlert(title: "Erreur de téléchargement", msg:"Le téléchargement du GIF n'a pas fonctionné")
+    }
+    
     private func showDownloadAlert() {
         let alertController = UIAlertController(title: "Téléchargement réussi !", message: "", preferredStyle: .alert)
         
         // Bouton "OK"
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         // Bouton "Ne plus me demander"
-        alertController.addAction(UIAlertAction(title: "Ne plus me demander", style: .default, handler: { _ in
+        alertController.addAction(UIAlertAction(title: "Ne plus afficher", style: .default, handler: { _ in
             // Enregistre la préférence de l'utilisateur
-            self.boolShowAlert = false
+            self.boolDontAsk = false
         }))
         
         // Affiche l'alerte depuis le contrôleur de vue
