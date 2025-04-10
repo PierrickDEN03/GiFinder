@@ -21,6 +21,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     var isLoading = false
     var isTotalContent = false
     
+    @IBOutlet weak var presentationLabel: UILabel!
     @IBOutlet weak var queryField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         let scrollTrueOffset = scrollView.contentOffset.y + tableView.frame.size.height
         
         //Charge les GIF ou un message d'erreur si scroll atteint
-        if (scrollView.contentSize.height <= scrollTrueOffset  && !isLoading){
+        if (scrollView.contentSize.height <= scrollTrueOffset  && !isLoading && images.count > 0){
             if !isTotalContent{
                 self.loadGifs(loader:mediumLoadingView,waitTimeMS: 500)
             }else{
@@ -89,6 +90,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         if(!isLoading){
             // Pour empêcher  qu'il y ait d'autres plusieurs requêtes déclenchées en même temps
             self.isLoading = true
+            presentationLabel.isHidden = true
             loader.startAnimating()
             Task {
                 //Vérification des mots clés
@@ -114,6 +116,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
                     self.showAlert(title: "Champs vide", msg: "Le champs de texte est vide, veuillez renseigner le style de gif que vous recherchez")
                     self.isLoading = false
                     loader.stopAnimating()
+                }
+                if(images.count == 0){
+                    presentationLabel.isHidden = false
                 }
             }
         }
