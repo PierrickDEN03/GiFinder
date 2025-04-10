@@ -54,9 +54,6 @@ class CustomTableViewCell: UITableViewCell {
     }
 }
     
-        
-    
-    
     func loadGif(from url: String) {
         if let gifImage = UIImage.gifImageWithURL(url) {    //On vérifie que l'url n'est pas nil
             DispatchQueue.main.async {
@@ -65,8 +62,6 @@ class CustomTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    
     
     func handleDownload() {
         if GiphyAPIHandle.shared.downloadAndSavePhotoGIF(from: url) {
