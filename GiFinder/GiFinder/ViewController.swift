@@ -25,8 +25,11 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var queryField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    
     //Au clic du bouton, charge les gifs par mots-clés et actualise le tableau
     @IBAction func clic(_ sender: Any) {
+        //Enlève le clavier au clic du boutton
+        view.endEditing(true)
         isEndResult = false
         tableView.setContentOffset(.zero, animated: false)
         currentTitle = queryField.text
@@ -113,7 +116,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
                         loader.stopAnimating()
                     }
                 }else{
-                    self.showAlert(title: "Champs vide", msg: "Le champs de texte est vide, veuillez renseigner le style de gif que vous recherchez")
+                    self.showAlert(title: "Champ vide", msg: "Le champ de texte est vide, veuillez renseigner le style de gif que vous recherchez")
                     self.isLoading = false
                     loader.stopAnimating()
                 }
